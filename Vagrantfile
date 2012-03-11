@@ -3,7 +3,8 @@
 
 Vagrant::Config.run do |config|
  config.vm.box = "base"
-# config.vm.boot_mode = :gui
+# config.vm.share_folder("v-root","/vagrant",".",:nfs => true)
+ config.vm.share_folder("v-root","/vagrant","~/workspace/di")
  config.vm.forward_port 80,4567
  config.vm.provision :chef_solo do |chef|
 	 chef.cookbooks_path = "~/workspace/cookbooks"
